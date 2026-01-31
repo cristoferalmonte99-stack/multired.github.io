@@ -54,6 +54,34 @@ nav {
   list-style: none;
 }
 
+/* Menú hamburguesa para móvil */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #0284c7;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 .nav-links a {
   color: #0c4a6e;
   text-decoration: none;
@@ -620,44 +648,737 @@ footer p {
   margin: 0.5rem 0;
 }
 
+/* Sección de Cobertura */
+.cobertura-intro {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #075985;
+  margin-bottom: 3rem;
+}
+
+.cobertura-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.cobertura-card {
+  background: #ffffff;
+  border: 3px solid #bae6fd;
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(186, 230, 253, 0.4);
+}
+
+.cobertura-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(14, 165, 233, 0.4);
+  border-color: #0ea5e9;
+}
+
+.cobertura-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.cobertura-card h3 {
+  color: #0c4a6e;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.cobertura-tech {
+  color: #0284c7;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.cobertura-zones {
+  list-style: none;
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.cobertura-zones li {
+  padding: 0.6rem 0;
+  color: #075985;
+  font-size: 1rem;
+}
+
+.cobertura-zones li::before {
+  content: "📍 ";
+  margin-right: 0.5rem;
+}
+
+.cobertura-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+}
+
+.cobertura-note {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f0f9ff;
+  border-radius: 10px;
+  border-left: 4px solid #0ea5e9;
+}
+
+.verificar-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+/* Calculadora de Planes */
+.calculadora-intro {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #075985;
+  margin-bottom: 3rem;
+}
+
+.calculadora-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.calculadora-form {
+  background: #ffffff;
+  border: 3px solid #bae6fd;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 25px rgba(186, 230, 253, 0.4);
+}
+
+.calc-question {
+  margin-bottom: 2rem;
+}
+
+.calc-question label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #0c4a6e;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.calc-question select {
+  width: 100%;
+  padding: 1rem;
+  background: #f0f9ff;
+  border: 2px solid #bae6fd;
+  border-radius: 10px;
+  color: #0c4a6e;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+
+.calc-question select:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+.calculadora-resultado {
+  background: linear-gradient(135deg, #bae6fd 0%, #7dd3fc 100%);
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(125, 211, 252, 0.4);
+}
+
+.resultado-content {
+  text-align: center;
+  width: 100%;
+}
+
+.resultado-content h3 {
+  color: #0c4a6e;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.resultado-plan {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.resultado-plan .plan-speed {
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.resultado-plan .plan-price {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+.resultado-plan p {
+  color: #075985;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+.resultado-plan ul {
+  list-style: none;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.resultado-plan ul li {
+  padding: 0.5rem 0;
+  color: #075985;
+}
+
+.resultado-plan ul li::before {
+  content: "✓ ";
+  color: #0ea5e9;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* FAQ */
+.faq-intro {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #075985;
+  margin-bottom: 3rem;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 2px solid #bae6fd;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(186, 230, 253, 0.3);
+}
+
+.faq-item:hover {
+  border-color: #0ea5e9;
+  box-shadow: 0 6px 25px rgba(14, 165, 233, 0.4);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.faq-question:hover {
+  background: #f0f9ff;
+}
+
+.faq-question h3 {
+  color: #0c4a6e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.faq-toggle {
+  font-size: 2rem;
+  color: #0ea5e9;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 2rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 1000px;
+  padding: 0 2rem 1.5rem;
+}
+
+.faq-answer p {
+  color: #475569;
+  line-height: 1.8;
+  margin: 0.8rem 0;
+}
+
+.faq-answer ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.faq-answer ul li {
+  color: #475569;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.faq-highlight {
+  background: #f0f9ff;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid #0ea5e9;
+  font-weight: 600;
+}
+
+.faq-important {
+  background: #fef3c7;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid #f59e0b;
+}
+
+/* Testimonios */
+.testimonios-intro {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #075985;
+  margin-bottom: 3rem;
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.testimonio-card {
+  background: #ffffff;
+  border: 3px solid #bae6fd;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 25px rgba(186, 230, 253, 0.4);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.testimonio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(14, 165, 233, 0.4);
+  border-color: #0ea5e9;
+}
+
+.testimonio-stars {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f59e0b;
+}
+
+.testimonio-text {
+  color: #475569;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.testimonio-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e0f2fe;
+}
+
+.testimonio-author strong {
+  color: #0c4a6e;
+  font-size: 1.1rem;
+}
+
+.testimonio-author span {
+  color: #0284c7;
+  font-size: 0.95rem;
+}
+
+.testimonio-form-container {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  background: #ffffff;
+  border: 3px solid #bae6fd;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 8px 25px rgba(186, 230, 253, 0.4);
+}
+
+.testimonio-form-container h3 {
+  color: #0c4a6e;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.testimonio-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+  /* Menú móvil */
+  .menu-toggle {
+    display: flex;
+  }
+
   .nav-links {
-    display: none;
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.98);
+    width: 100%;
+    text-align: center;
+    transition: left 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;
+    gap: 0;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
-  .hero h1 {
-    font-size: 2.5rem;
+  .nav-links.active {
+    left: 0;
   }
 
-  .hero p {
+  .nav-links li {
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e0f2fe;
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.5rem;
     font-size: 1.1rem;
   }
 
-  section h2 {
-    font-size: 2rem;
+  /* Hero adaptado */
+  .hero {
+    min-height: 85vh;
+    padding: 5rem 5% 3rem;
   }
 
+  .hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  .hero h1::after {
+    width: 80px;
+    height: 4px;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 1rem;
+  }
+
+  .cta-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* Secciones con mejor espaciado */
+  section {
+    padding: 3rem 5%;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  section h2::after {
+    width: 60px;
+  }
+
+  /* Grids adaptados */
   .about-content,
-  .contact-container {
+  .contact-container,
+  .calculadora-container {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .about-image {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
+    margin: 2rem auto;
   }
 
+  .planes-grid,
+  .ofertas-grid,
+  .valores-grid,
+  .cobertura-grid,
+  .testimonios-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Tarjetas optimizadas para móvil */
+  .plan-card,
+  .oferta-card,
+  .valor-card,
+  .cobertura-card,
+  .testimonio-card {
+    padding: 1.8rem;
+  }
+
+  .plan-speed {
+    font-size: 2.8rem;
+  }
+
+  .plan-price {
+    font-size: 1.6rem;
+  }
+
+  /* Ofertas con badge ajustado */
+  .oferta-badge {
+    top: 20px;
+    right: -40px;
+    padding: 0.5rem 3rem;
+    font-size: 0.75rem;
+  }
+
+  /* Cobertura mejorada */
+  .cobertura-intro,
+  .calculadora-intro,
+  .faq-intro,
+  .testimonios-intro {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .cobertura-icon {
+    font-size: 3rem;
+  }
+
+  .cobertura-card h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Calculadora responsive */
+  .calculadora-resultado {
+    min-height: 300px;
+  }
+
+  .resultado-content h3 {
+    font-size: 1.5rem;
+  }
+
+  /* FAQ optimizado */
+  .faq-question {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-right: 2rem;
+  }
+
+  .faq-toggle {
+    font-size: 1.8rem;
+    min-width: 30px;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 1.5rem 1.2rem;
+  }
+
+  /* Testimonios adaptados */
+  .testimonio-stars {
+    font-size: 1.3rem;
+  }
+
+  .testimonio-text {
+    font-size: 1rem;
+  }
+
+  .testimonio-form-container {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Formularios móviles */
+  .form-group input,
+  .form-group textarea,
+  .form-group select,
+  .calc-question select {
+    font-size: 16px; /* Evita zoom en iOS */
+  }
+
+  #contactForm,
+  .calculadora-form {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Info de contacto */
+  .info-item {
+    padding: 1.5rem;
+  }
+
+  .info-item h4 {
+    font-size: 1.1rem;
+  }
+
+  .info-item p {
+    font-size: 1rem;
+  }
+
+  /* WhatsApp button más accesible en móvil */
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsapp-float::before {
+    font-size: 28px;
+  }
+
+  .whatsapp-tooltip {
+    display: none; /* Ocultar en móvil */
+  }
+
+  /* Footer */
+  footer {
+    padding: 2rem 5%;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+  }
+
+  /* Valores con iconos más pequeños */
+  .valor-icon {
+    font-size: 2.5rem;
+  }
+
+  .valor-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .valor-card p {
+    font-size: 0.95rem;
+  }
+
+  /* Botones más grandes para touch */
+  .plan-button,
+  .submit-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    min-height: 48px; /* Tamaño mínimo recomendado para touch */
+  }
+
+  /* Logo más pequeño en móvil */
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  /* Navegación con scroll suave */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+}
+
+/* Tablets (entre 769px y 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
   .planes-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ofertas-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .valores-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  section h2 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Móviles pequeños (menos de 380px) */
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  section h2 {
+    font-size: 1.6rem;
+  }
+
+  .plan-card,
+  .oferta-card,
+  .cobertura-card {
+    padding: 1.5rem;
+  }
+
+  .about-image {
+    width: 240px;
+    height: 240px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
   }
 }
 
